@@ -6,7 +6,7 @@ The encryption is made with AES in CBC mode using a library called pycrypto.
 
 ## Install 
 
-Modify settings.json with your init vector and credentials of mongo
+Modify settings.json with your init vector, credentials of mongo, and telegram bot token
 
 Then install using pip:
 
