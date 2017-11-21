@@ -1,0 +1,6 @@
+{
+    "initVector" : "",
+    "telegramToken" : "",
+    "mongoUri" : "",
+    "mongoPassword" : ""
+}

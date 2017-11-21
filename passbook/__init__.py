@@ -5,12 +5,14 @@ import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler
 
 import logging
-import sys
-import db
-import encrypt
+import json
+import passbook.db as db
+import passbook.encrypt as encrypt
 
-# Para el modo CBC el init vector tiene que ser del AES.block_size, que es de 16
-initvector = ''
+data = json.load(open('settings.json'))
+
+# For the CBC mode, the init vector must be equal to AES.block_size, which is 16
+initvector = data["initVector"]
 
 loggerFormat = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 
@@ -121,7 +123,7 @@ def error(bot, update, error):
 
 
 def main():
-    updater = Updater("")
+    updater = Updater(data["telegramToken"])
     dp = updater.dispatcher
 
     add_psw_handler = ConversationHandler(
@@ -173,5 +175,5 @@ def main():
     updater.idle()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

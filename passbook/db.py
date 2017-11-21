@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+import json
 from pymongo import MongoClient
 from datetime import datetime
 
-initvector=''
-password=''
+data = json.load(open('settings.json'))
+
+password=data["mongoPassword"]
+mongoUri=data["mongoUri"]
 
 def connect():
-    client = MongoClient("mongodb://admin:"+password+"@localhost")
+    client = MongoClient("mongodb://admin:"+password+"@"+mongoUri)
     return client.local
 
 # Debe insertar la password en mongo segun cliente y app
