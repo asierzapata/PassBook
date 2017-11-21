@@ -10,4 +10,6 @@ Modify settings.json with your init vector and credentials of mongo
 
 Then install using pip:
 
-´´´ pip install . ´´´
+``` 
+pip install . 
+```
